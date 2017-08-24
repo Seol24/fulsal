@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+body{
+		position: relative;
+	}
+	ul{
+		list-style: none;
+	}
+	#wrapper{
+		width: 1080px;
+		margin: 0 auto;
+		margin-top: 80px;
+	}
+	#context{
+		margin-top : 80px;
+		width : 270px;
+		margin-bottom: 200px;
+	}
+	.h3{
+		margin-bottom: 150px;
+	}
+	h4{
+		float: right;
+		margin-right: 0px;
+	}
+	#modify{
+		float: right;
+		background-color: rgba(0,255,127,0.7);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+		
+	}
+	#delete{
+		float: right;
+		background-color: rgba(255,108,108,0.9);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+	}
+	#back{
+		float: right;
+		background-color: rgba(255,255,54,1);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+	}
+	.writer{
+		margin-bottom: 15px;
+		font-size: 20px;
+	}
+	#repliesList{
+		margin-bottom: 30px;
+		font-weight:bold;
+		font-size: 40px;
+		padding-bottom : 30px;
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+	}
+	.timelines-body{
+		margin-bottom: 30px;
+		font-size: 23px;
+		padding-left: 20px;
+	}
+	.hr{
+		border-top: 1px solid rgba(0,0,0,0.3);
+	}
+	#btnAdd{
+		float: right;
+		margin-top:5px;
+		background-color: rgb(54,105,207);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+	}
+	
+	.btn-div{
+		font-weight: bold;
+		text-align: right;
+	}
+	.modify{
+		color:rgba(0,255,127,0.7);
+	}
+	.delete{
+		color: rgba(255,108,108,0.9);
+	}
+	/******************************/
+	/*********여기서 부터 모달**********/
+	/*****************************/
+	#modifyModal{
+		width : 100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		background-color: rgba(0,0,0,0.7);
+	}
+	/* 이거 없으면 수정 안됨*/
+	#modal-title{
+		display: none;
+	}
+	.p1{
+		position:absolute;
+		top:1000px;
+		left: 600px;
+		width: 720px;
+	}
+	#btn{
+		margin-top: 20px;
+	}
+	.btn-modify{
+		float: right;
+		background-color: rgba(0,255,127,0.7);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+	}
+	.btn-cancel{
+		float: right;
+		background-color: rgba(255,108,108,0.9);
+		border-radius:5px 5px;
+		font-size: 25px;
+		color:white;
+	}
+	#login{
+		text-align: left;
+		color : white;
+		font-size: 32px;
+	}

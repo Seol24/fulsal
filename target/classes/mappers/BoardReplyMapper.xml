@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.mappers.BoardReplyMapper">
+
+	<select id="list" resultType="Board_reply">
+		select * from board_reply
+		where bno = #{bno}
+		order by brno desc
+	</select>
+	
+	<insert id="create">
+		insert into board_reply (bno, brcontext, mid, brdate)
+		values (#{bno}, #{brcontext}, #{mid},now())
+		
+	</insert>
+	
+	<update id="update">
+		update board_reply set brcontext=#{brcontext}
+		where brno = #{brno}
+	</update>
+	
+	<delete id="delete">
+		delete from board_reply where brno = #{brno}
+	</delete>
+	
+	<select id="listPage" resultType="Board_reply">
+		select * from board_reply where bno = #{bno}
+		order by brno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(bno) from board_reply where bno = #{bno}
+	</select>
+	
+	
+	<select id="getBno" resultType="int">
+		select bno from board_reply where brno =#{brno}
+	</select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.dgit.mappers.ReservationMapper">
+  		<select id="listReservation" resultType="Reservation">
+  			select * from reservation
+  		</select>
+  		<insert id="insertReservation">
+  			insert into reservation(rdate, startDate, enddate, rmatching, kno, mid) values(#{rdate},#{startdate},${enddate},#{rmatching},#{kno},#{mid})
+  		</insert>
+  		<select id="viewReseervation" resultType="Reservation">
+  			select * from reservation where rdate=#{rdate}
+  		</select>
+  	
+  		<select id="viewKujang" resultType="Kujang">
+  			select * from kujang
+  		</select>
+  		
+  		<select id="viewToday" resultType="Today">
+  			select * from today
+  		</select>
+  		<select id="selectToday" resultType="Today">
+  			select * from today where todaytime= #{todaytime}
+  		</select>
+  		<select id="selectKujang" resultType="Kujang">
+  			select * from kujang where kno= #{kno}
+  		</select>
+  		<select id="selectMembers" resultType="Members">
+  			select * from members where mid = #{mid}
+  		</select>
+  		<select id="deleteReservation">
+  			delete from reservation where rno =#{rno}
+  		</select>
+  		<select id="modifyReservation">
+  			update reservation set rmatching =false where rno =#{rno}
+  		</select>
+  </mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.mappers.TransferReplyMapper">
+
+ 	<select id="list" resultType="Transfer_reply">
+		select * from Transfer_reply
+		where tno = #{tno}
+		order by trno desc
+	</select>
+	
+	<insert id="create">
+		insert into Transfer_reply (tno, trcontext, mid, trdate)
+		values (#{tno}, #{trcontext}, #{mid},now())
+		
+	</insert>
+	
+	<update id="update">
+		update Transfer_reply set trcontext=#{trcontext}
+		where trno = #{trno}
+	</update>
+	
+	<delete id="delete">
+		delete from Transfer_reply where trno = #{trno}
+	</delete>
+	
+	<select id="listPage" resultType="Transfer_reply">
+		select * from Transfer_reply where tno = #{tno}
+		order by trno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(tno) from Transfer_reply where tno = #{tno}
+	</select>
+	
+	
+	<select id="getTno" resultType="int">
+		select tno from Transfer_reply where trno =#{trno}
+	</select>
+</mapper>

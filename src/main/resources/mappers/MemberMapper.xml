@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.mappers.MemberMapper">
+	<select id="getTime" resultType="string">
+		select now()
+	</select>
+	
+	<insert id="createMember">
+		insert into members(mid, mpass,mname, mphone, memail, mdate) values (#{mid}, #{mpass},#{mname}, #{mphone}, #{memail},now())
+	</insert>
+	
+	<select id="readMember" resultType="Members">
+      select*from members where mid=#{mid}
+   </select>
+   <select id="readWithPW" resultType="Members">
+      select*from members where mid=#{mid} and mpass=#{mpass}
+   </select>
+   <select id="listAll" resultType="Members">
+ 	select * from members  
+   </select>
+   
+   <update id="update">
+      UPDATE members
+      SET mpass=#{mpass}, mphone=#{mphone}, memail=#{memail}
+      WHERE mid=#{mid};
+   </update>
+   
+   <delete id="delete">
+      delete from members where mid=#{mid}
+   </delete>
+   
+   <select id="list" resultType="Members">
+   		select * from members  
+   		where mid = #{mid}
+   </select>
+   
+   <select id="login" resultType="Members">
+   		select * from members where mid=#{mid} and mpass =#{mpass}
+   </select>
+	
+</mapper>

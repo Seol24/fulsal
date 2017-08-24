@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.mappers.MatchingReplyMapper">
+
+	<select id="list" resultType="MatchingReply">
+		select * from matching_reply
+		where rno = #{rno}
+		order by mrno desc
+	</select>
+	
+	<insert id="create">
+		insert into matching_reply (rno, mrcontext, mid, mrdate)
+		values (#{rno},#{mrcontext}, #{mid},now())
+		
+	</insert>
+	
+	<update id="update">
+		update matching_reply set mrcontext=#{mrcontext}
+		where mrno = #{mrno}
+	</update>
+	
+	<delete id="delete">
+		delete from matching_reply where mrno = #{mrno}
+	</delete>
+	
+	<select id="listPage" resultType="MatchingReply">
+		select * from matching_reply where mid = #{mid}
+		order by mrno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(rno) from matching_reply where rno = #{rno}
+	</select>
+	
+	
+	<select id="getBno" resultType="int">
+		select mid from matching_reply where mrno =#{mrno}
+	</select>
+</mapper>
